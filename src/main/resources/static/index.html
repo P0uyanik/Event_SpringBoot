@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    const eventSource = new EventSource("/behalter");
+    eventSource.addEventListener("behalter" , e=>console.log(e.data) , false) ;
+</script>
+</body>
+<head>
