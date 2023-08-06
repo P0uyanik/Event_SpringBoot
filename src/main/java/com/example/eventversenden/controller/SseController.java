@@ -11,7 +11,6 @@ public class SseController {
     private final CopyOnWriteArrayList<SseEmitter> ermitters = new CopyOnWriteArrayList<>();
     @GetMapping("/Behalter")
     public SseEmitter handle() {
-        System.out.println("ssssssssssss");
         SseEmitter sseEmitter = new SseEmitter();
         this.ermitters.add(sseEmitter);
         sseEmitter.onCompletion(() -> this.ermitters.remove(sseEmitter));
@@ -20,7 +19,6 @@ public class SseController {
     }
     @EventListener
     public void onBehalter(Behalter behalter) {
-        System.out.println("ggggggggggggggggggggggg");
         this.ermitters.forEach(sseEmitter ->
         {
             try {
